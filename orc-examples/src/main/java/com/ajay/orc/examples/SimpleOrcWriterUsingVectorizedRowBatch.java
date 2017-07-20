@@ -17,8 +17,7 @@ public class SimpleOrcWriterUsingVectorizedRowBatch {
       Configuration conf = new Configuration();
       TypeDescription schema = TypeDescription.fromString("struct<x:int,y:int>");
       Writer writer = OrcFile.createWriter(new Path("/tmp/simple-my-file.orc"),
-          OrcFile.writerOptions(conf)
-              .setSchema(schema));
+          OrcFile.writerOptions(conf).setSchema(schema));
 
       VectorizedRowBatch batch = schema.createRowBatch();
       LongColumnVector x = (LongColumnVector) batch.cols[0];
